@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => HomeCubit(context.read<GifRepository>())..getUrls(),
-      child: HomeView(),
+      child: const HomeView(),
     );
   }
 }

@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokemon_services/src/models/error_data_model.dart';
 
 /// {@template pokemon_services}
 /// A Very Good Project created by Very Good CLI.
@@ -10,16 +12,23 @@ class PokemonServices {
   }) : httpClient = httpClient ?? http.Client();
 
   final http.Client httpClient;
-  final baseUrl = 'pokeapi.co';
+  final _baseUrl = 'pokeapi.co';
 
-  fetchListPokemon({required int offset}) {
-    final endPoint = 'api/v2';
-    final limit = '20';
-    final uri = Uri.https(baseUrl, endPoint, {
-      'limit': limit,
-      'offset': offset.toString(),
-    });
+  fetchListPokemon({required int offset}) {}
 
-    final resp = httpClient.get(uri);
+  Future<Either<ErrorDataModel, dynamic>> _fetchPokemon(
+      {required int number}) async {
+    final endPoint = 'api/v2/$number';
+    Either<dynamic, dynamic> response;
+
+    try {
+      final uri = Uri.https(_baseUrl, endPoint);
+      final resp = await http.get(uri);
+      if (resp.statusCode == 200) {
+        return resp.body;
+      }
+    } catch (e) {
+      response = Left(ErrorDataModel(typeError: TypeError.EXTERNAL));
+    }
   }
 }

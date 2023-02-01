@@ -43,6 +43,9 @@ dependencies:
   gif_repository:
     path: "packages/gif_repository"
 
+  pokemon_services:
+    path: "packages/pokemon_services"
+
 
 dev_dependencies:
   flutter_test:

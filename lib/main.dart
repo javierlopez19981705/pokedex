@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gif_repository/gif_repository.dart';
+import 'package:pokemon_services/pokemon_services.dart';
 import 'package:test_bloc_dummy/home/view/home_page.dart';
+import 'package:test_bloc_dummy/home_pokemons/view/home_pokemons_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RepositoryProvider(
-      create: (context) => GifRepository(),
+      create: (context) => PokemonServices(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const HomePage(),
+        home: const HomePokemonsView(),
       ),
     );
   }

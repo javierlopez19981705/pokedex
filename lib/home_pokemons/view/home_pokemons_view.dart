@@ -24,9 +24,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hi'),
-        centerTitle: true,
+        title: Text('POKEDEX'),
       ),
+      backgroundColor: Color.fromRGBO(43, 41, 44, 1),
       body: BlocBuilder<HomePokemonsCubit, HomePokemonsState>(
         builder: (context, state) {
           switch (state.status) {

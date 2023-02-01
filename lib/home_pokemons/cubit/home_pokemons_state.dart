@@ -4,7 +4,7 @@ enum HomePokemonsStatus { loading, sucess, error, loadingMore }
 
 class HomePokemonsState {
   HomePokemonsState({
-    this.offset = 20,
+    this.offset = 30,
     this.pokemons = const [],
     this.status = HomePokemonsStatus.loading,
   });

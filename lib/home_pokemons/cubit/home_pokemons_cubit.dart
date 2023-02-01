@@ -23,7 +23,7 @@ class HomePokemonsCubit extends Cubit<HomePokemonsState> {
       );
     }
     emit(state.copyWith(
-      offset: state.offset + 20,
+      offset: state.offset + 30,
       pokemons: [...state.pokemons, ...list],
       status: HomePokemonsStatus.sucess,
     ));
@@ -56,7 +56,7 @@ class HomePokemonsCubit extends Cubit<HomePokemonsState> {
       );
     }
     emit(state.copyWith(
-      offset: state.offset + 20,
+      offset: state.offset + 30,
       pokemons: [...state.pokemons, ...list],
       status: HomePokemonsStatus.sucess,
     ));

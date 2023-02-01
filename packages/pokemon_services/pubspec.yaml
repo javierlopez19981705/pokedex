@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  http: ^0.13.5
   dartz: ^0.10.1
+  http: ^0.13.5
 
   
 dev_dependencies:

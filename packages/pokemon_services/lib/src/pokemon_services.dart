@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 import 'package:pokemon_services/src/models/error_data_model.dart';
@@ -19,7 +17,7 @@ class PokemonServices {
 
   Future<List<Either<ErrorDataModel, PokemonModel>>> fetchListPokemon(
       {required int offset}) async {
-    final initial = offset - 19;
+    final initial = offset - 29;
 
     final list = <Either<ErrorDataModel, PokemonModel>>[];
 

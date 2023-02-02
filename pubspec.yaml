@@ -42,6 +42,7 @@ dependencies:
   palette_generator: ^0.3.3+2
   card_swiper: ^2.0.4
   percent_indicator: ^4.2.2
+  text_to_speech: ^0.2.3
 
   gif_repository:
     path: "packages/gif_repository"

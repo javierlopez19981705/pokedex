@@ -37,10 +37,23 @@ class CardPokemon extends StatelessWidget {
   }
 
   Widget _image({required BuildContext context}) {
-    return HeroImageNetwork(
-      url: pokemon.sprites.other!.officialArtwork.frontDefault,
-      idHero: pokemon.id.toString(),
-      width: MediaQuery.of(context).size.width * .3,
+    return Stack(
+      children: [
+        Positioned(
+          top: MediaQuery.of(context).size.width * .2,
+          left: MediaQuery.of(context).size.width * .2,
+          right: 0,
+          bottom: 0,
+          child: Center(
+            child: Image.asset('assets/images/pokeball.png'),
+          ),
+        ),
+        HeroImageNetwork(
+          url: pokemon.sprites.other!.officialArtwork.frontDefault,
+          idHero: pokemon.id.toString(),
+          width: MediaQuery.of(context).size.width * .45,
+        ),
+      ],
     );
   }
 }

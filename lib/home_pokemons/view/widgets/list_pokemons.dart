@@ -19,15 +19,17 @@ class ListPokemons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width * 4;
+
     controller.addListener(() {
-      if (controller.offset > (controller.position.maxScrollExtent - 200)) {
+      if (controller.offset > (controller.position.maxScrollExtent - size)) {
         context.read<HomePokemonsCubit>().getMorePokemons();
       }
     });
 
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
       ),
       physics: const BouncingScrollPhysics(),
       controller: controller,

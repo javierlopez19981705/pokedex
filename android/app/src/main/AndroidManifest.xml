@@ -1,6 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.test_bloc_dummy">
-   <application
+
+    <queries>  
+        <intent>  
+            <action android:name="android.intent.action.TTS_SERVICE" />  
+        </intent>  
+    </queries>  
+
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- Add this -->
+    <application
         android:label="test_bloc_dummy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

@@ -4,16 +4,14 @@ import 'package:pokemon_services/pokemon_services.dart';
 import 'package:test_bloc_dummy/home_pokemons/cubit/home_pokemons_cubit.dart';
 import 'package:test_bloc_dummy/home_pokemons/view/widgets/list_pokemons.dart';
 
+import '../../details_pokemon.dart/cubit/details_pokemon_cubit.dart';
+
 class HomePokemonsView extends StatelessWidget {
   const HomePokemonsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          HomePokemonsCubit(context.read<PokemonServices>())..getPokemons(),
-      child: const HomeView(),
-    );
+    return const HomeView();
   }
 }
 
@@ -24,9 +22,9 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('POKEDEX'),
+        title: const Text('POKEDEX'),
       ),
-      backgroundColor: Color.fromRGBO(43, 41, 44, 1),
+      backgroundColor: const Color.fromRGBO(43, 41, 44, 1),
       body: BlocBuilder<HomePokemonsCubit, HomePokemonsState>(
         builder: (context, state) {
           switch (state.status) {
@@ -37,7 +35,12 @@ class HomeView extends StatelessWidget {
               return ListPokemons(pokemons: state.pokemons);
 
             case HomePokemonsStatus.error:
-              return const Text('Ha ocurrido un error');
+              return const Center(
+                child: Text(
+                  'Ha ocurrido un error',
+                  style: TextStyle(color: Colors.white),
+                ),
+              );
 
             case HomePokemonsStatus.loadingMore:
               return ListPokemons(

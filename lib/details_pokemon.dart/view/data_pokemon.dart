@@ -10,19 +10,35 @@ class DataPokemon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          _image(context: context),
-          const SizedBox(height: 16),
-          _name(),
-          const SizedBox(height: 16),
-          _size(),
-          const SizedBox(height: 16),
-          _labelStats(),
-          ..._dataAtack(context: context),
-        ],
-      ),
+    return Stack(
+      children: [
+        Positioned(
+          left: 20,
+          right: 20,
+          bottom: -MediaQuery.of(context).size.width * .25,
+          child: Center(
+            child: Image.asset(
+              'assets/images/pokeball.png',
+              width: MediaQuery.of(context).size.width * .9,
+            ),
+          ),
+        ),
+        SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 16),
+              _image(context: context),
+              const SizedBox(height: 16),
+              _name(),
+              const SizedBox(height: 16),
+              _size(),
+              const SizedBox(height: 16),
+              _labelStats(),
+              ..._dataAtack(context: context),
+            ],
+          ),
+        )
+      ],
     );
   }
 
@@ -35,7 +51,6 @@ class DataPokemon extends StatelessWidget {
           decoration: BoxDecoration(
             color: pokemon.color,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Colors.white, width: 15),
           ),
           child: Image.network(
             pokemon.sprites.other!.officialArtwork.frontDefault,
@@ -60,7 +75,7 @@ class DataPokemon extends StatelessWidget {
 
   Widget _labelStats() {
     return const Text(
-      'Stats',
+      'Estadisticas',
       style: TextStyle(
         fontSize: 24,
         color: Colors.white,
@@ -89,14 +104,14 @@ class DataPokemon extends StatelessWidget {
           children: [
             Text('${(pokemon.weight / 10).toString()} KG', style: styleValue),
             const SizedBox(height: 8),
-            const Text('Weight', style: styleLabel),
+            const Text('Peso', style: styleLabel),
           ],
         ),
         Column(
           children: [
             Text('${(pokemon.height / 10).toString()} M', style: styleValue),
             const SizedBox(height: 8),
-            const Text('Height', style: styleLabel),
+            const Text('Tamaño', style: styleLabel),
           ],
         ),
       ],
@@ -105,7 +120,7 @@ class DataPokemon extends StatelessWidget {
 
   List<Widget> _dataAtack({required BuildContext context}) {
     return pokemon.stats.map((stat) {
-      final color = Color((math.Random().nextDouble() * 0x666666).toInt())
+      final color = Color((math.Random().nextDouble() * 0x888888).toInt())
           .withOpacity(1.0);
 
       final statDemo = math.Random().nextDouble() * stat.baseStat;

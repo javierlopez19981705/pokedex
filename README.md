@@ -1,6 +1,7 @@
 Aplicacion Pokedex desarrollado con flutter utilizando Cubics como gestor de estados
 
 Paquetes usados:
+
     -flutter_bloc
 
     -bloc

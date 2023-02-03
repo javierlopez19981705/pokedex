@@ -2,16 +2,22 @@ Aplicacion Pokedex desarrollado con flutter utilizando Cubics como gestor de est
 
 Paquetes usados:
     -flutter_bloc
+
     -bloc
+
     -palette_generator
+
     -card_swiper
+
     -percent_indicator
+
     -text_to_speech
    
   
 Capturas 
 
 **Nota: sube el volumen del video para escuchar la descripcion.
+
 https://user-images.githubusercontent.com/68623677/216639335-70ca834b-c029-4db6-8d0d-80c23abb4227.mp4
 
 ![VideoCapture_20230203-090742](https://user-images.githubusercontent.com/68623677/216639391-99aaa9df-1985-4696-9b59-df942ffefda5.jpg)
